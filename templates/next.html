@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Next</title>
+    <style>
+        #hide {
+            display: none;
+        }
+
+        .table {
+
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>List of users</h1>
+        <br><br>
+        <table class="table table-striped table-responsive-md btn-table">
+
+            <thead>
+                <tr>
+                    <th>
+                        <form method="get" action="/previous" enctype="multipart/form-data" id="previous">
+                            {% csrf_token %}
+                            <input type="number" value={{next.id}} name="previous" id="hide" />
+                            <input type="submit" class="btn btn-danger" id="content-more" value="previous" />
+                        </form>
+                    </th>
+                    <th>Name &nbsp; : &nbsp; {{next.name}}</th>
+                    <th>
+                        <form method="get" action="/more" enctype="multipart/form-data" id="more">
+                            {% csrf_token %}
+                            <input type="number" value={{next.id}} name="seemore" id="hide" />
+                            <input type="submit" class="btn btn-info" id="content-more" value="more" />
+                        </form>
+                    </th>
+                    <th>
+                        <form method="get" action="/next" enctype="multipart/form-data" id="next">
+                            {% csrf_token %}
+                            <input type="number" value={{next.id}} name="next" id="hide" />
+                            <input type="submit" class="btn btn-danger" id="content-more" value="next" />
+                        </form>
+                    </th>
+                </tr>
+            </thead>
+
+
+
+        </table>
+</body>
+</center>
+
+</body>
+
+</html>
